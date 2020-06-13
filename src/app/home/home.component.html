@@ -1,0 +1,20 @@
+<div class="row d-flex justify-content-center">
+    <div class="col-lg-3">
+        <button (click)="getJsonData()" class="form-control btn btn-primary">Get Details</button>
+    </div>
+</div>
+
+
+<div class="row m-4 bg-danger">
+    <div *ngFor="let data of pageOfItems" class="card bg-dark text-light m-3" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title text-center font-weight-bold">{{ data.name }}</h5>
+            <p class="card-text text-center font-weight-bold">{{ data.id }}</p>
+            <p class="card-text ">{{ data.email }}</p>
+        </div>
+    </div>
+</div>
+
+<div *ngIf = "receivedData" class="text-center">
+    <app-pagination [items]="receivedData" (changePage)="onChangePage($event)"></app-pagination>
+</div>
